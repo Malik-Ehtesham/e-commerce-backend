@@ -157,7 +157,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   //   "host"
   // )}/api/users/resetPassword/${resetToken}`;
 
-  const resetURL = `${req.protocol}://localhost:3000/api/users/resetPassword/${resetToken}`;
+  const resetURL = `${req.protocol}://e-commerce-backend-production-e87.up.railway.app/api/users/resetPassword/${resetToken}`;
 
   const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetURL} .\nIf you didn't forget your password, please ignore this email!`;
 
