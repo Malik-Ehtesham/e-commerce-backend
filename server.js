@@ -19,11 +19,12 @@ const DB = process.env.DATABASE.replace(
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
+    useUnifiedTopology: true,
+    useCreateIndex: true, // New option for creating indexes
+    useFindAndModify: false, // New option for findOneAndUpdate() and findOneAndDelete()
   })
   .then(() => console.log("DB connection successful!"))
-  .catch((err) => console.log(err));
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
