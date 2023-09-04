@@ -1,14 +1,14 @@
+const multer = require("multer");
+const sharp = require("sharp");
+
 const User = require("../Models/user");
 const Review = require("../Models/review");
 const AppError = require("../Utils/appError");
 const catchAsync = require("../Utils/catchAsync");
-const sharp = require("sharp");
-
-const multer = require("multer");
 
 // const multerStorage = multer.diskStorage({
 //   destination: (req, file, cb) => {
-//     cb(null, "public/img/users");
+//     cb(null, "Public/img/users");
 //   },
 //   filename: (req, file, cb) => {
 //     // user-83749294855748903030-8484939303030385.jpeg
@@ -40,8 +40,7 @@ exports.resizeUserPhoto = (req, res, next) => {
     .resize(500, 500)
     .toFormat("jpeg")
     .jpeg({ quality: 90 })
-    .toFile(`uploads/${req.file.filename}`);
-  // .toFile(`Client/public/userImages/${req.file.filename}`);
+    .toFile(`Uploads/${req.file.filename}`);
 
   next();
 };

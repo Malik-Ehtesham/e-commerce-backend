@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
 const path = require("path");
 
 const userControllers = require("../Controllers/user");
 const authControllers = require("../Controllers/auth");
-
-// Create a multer instance with the configured storage
 
 router.post("/signup", authControllers.signup);
 router.post("/login", authControllers.login);

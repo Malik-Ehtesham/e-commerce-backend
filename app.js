@@ -7,6 +7,7 @@ const xss = require("xss-clean");
 const helmet = require("helmet");
 const compression = require("compression");
 const cors = require("cors");
+const path = require("path");
 
 const globalErrorHandler = require("./Controllers/error");
 const productRoutes = require("./Routes/product");
@@ -49,7 +50,9 @@ app.use(xss());
 app.use(compression());
 // 2) ROUTES
 
-app.use("/uploads", express.static("uploads"));
+// Serve uploaded images from a specific directory
+app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
+
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
