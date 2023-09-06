@@ -17,7 +17,7 @@ const userSchema = new Schema({
     lowercase: true,
     validate: [validator.isEmail, "Please provide a valid email"],
   },
-  photo: { type: String, default: "default.png" },
+  photo: { type: String, default: "profile.png" },
   role: { type: String, enum: ["user", "admin"], default: "user" },
   shippingAddress: {
     type: String,
