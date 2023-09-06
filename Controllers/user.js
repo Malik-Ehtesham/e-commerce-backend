@@ -1,6 +1,5 @@
 const multer = require("multer");
 const sharp = require("sharp");
-const path = require("path");
 
 const User = require("../Models/user");
 const Review = require("../Models/review");
@@ -41,8 +40,7 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
     .resize(500, 500)
     .toFormat("jpeg")
     .jpeg({ quality: 90 })
-    .toFile(path.join(__dirname, "Uploads", req.file.filename));
-
+    .toFile(`Uploads/${req.file.filename}`);
   next();
 });
 

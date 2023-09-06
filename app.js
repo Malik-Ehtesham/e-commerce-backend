@@ -51,7 +51,8 @@ app.use(compression());
 // 2) ROUTES
 
 // Serve uploaded images from a specific directory
-app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
+app.use("/api/uploads", express.static("Uploads"));
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
